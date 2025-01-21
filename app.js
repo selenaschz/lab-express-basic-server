@@ -25,6 +25,11 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/home.html");
 })
 
+// Iteration 4 - GET - Blog Page
+app.get("/blog", (req, res) => {
+    res.sendFile(__dirname + "/views/blog.html");
+})
+
 
 //--START THE SERVER--
 app.listen(port, () => {
