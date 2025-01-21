@@ -44,6 +44,12 @@ app.get("/api/articles", (req, res) => {
     res.json(articles)
 })
 
+// Iteration 7 - 404 Route
+app.use("/", (req, res) => {
+    console.log(req)
+    res.status(404).sendFile(__dirname + "/views/not-found.html");
+})
+
 //--START THE SERVER--
 app.listen(port, () => {
     console.log(`Run the server. Port: ${port}`);
