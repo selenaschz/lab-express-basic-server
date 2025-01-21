@@ -1,9 +1,11 @@
 // IMPORT PACKAGES
 const express = require("express");
-const morgan = require("morgan");
+const logger = require("morgan");
 const port = 5005;
 
+// Json:
 const projects = require("./data/projects.json")
+const articles = require("./data/articles.json")
 
 
 //--CREATE EXPRESS APP--
@@ -16,7 +18,7 @@ app.use(express.static("public"))
 // Json Middleware
 app.use(express.json())
 // Request logger (morgan)
-app.use(morgan("dev"));
+app.use(logger("dev"));
 
 
 
@@ -35,6 +37,11 @@ app.get("/blog", (req, res) => {
 // Iteration 5 - GET - JSON Projects 
 app.get("/api/projects", (req, res) => {
     res.json(projects);
+})
+
+// Iteration 6 - GET - JSON Articles
+app.get("/api/articles", (req, res) => {
+    res.json(articles)
 })
 
 //--START THE SERVER--
