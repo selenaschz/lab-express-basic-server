@@ -3,6 +3,8 @@ const express = require("express");
 const morgan = require("morgan");
 const port = 5005;
 
+const projects = require("./data/projects.json")
+
 
 //--CREATE EXPRESS APP--
 const app = express();
@@ -30,6 +32,10 @@ app.get("/blog", (req, res) => {
     res.sendFile(__dirname + "/views/blog.html");
 })
 
+// Iteration 5 - GET - JSON Projects 
+app.get("/api/projects", (req, res) => {
+    res.json(projects);
+})
 
 //--START THE SERVER--
 app.listen(port, () => {
